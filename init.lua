@@ -559,7 +559,9 @@ require('lazy').setup({
           format = { enable = false },
         },
         eslint = {
+          enable = true,
           format = { enable = false },
+          autoFixOnSave = true,
         },
         --
         lua_ls = {
