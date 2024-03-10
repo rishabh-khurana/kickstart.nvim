@@ -642,7 +642,32 @@ require('lazy').setup({
       },
     },
   },
-
+  -- Harpoon
+  {
+    'theprimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('harpoon'):setup()
+    end,
+    keys = {
+      {
+        'mm',
+        function()
+          require('harpoon'):list():append()
+        end,
+        desc = 'harpoon file',
+      },
+      {
+        '<C-h>',
+        function()
+          local harpoon = require 'harpoon'
+          harpoon.ui:toggle_quick_menu(harpoon:list())
+        end,
+        desc = 'harpoon quick menu',
+      },
+    },
+  },
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -701,7 +726,7 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<CR>'] = cmp.mapping.confirm { select = true },
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
