@@ -376,6 +376,10 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', 'H', '^')
+      vim.keymap.set('n', 'L', '$')
+      vim.keymap.set('v', 'H', '^')
+      vim.keymap.set('v', 'L', '$')
       -- For shifting lines
       vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
       vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
@@ -623,11 +627,11 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        javascript = { { 'prettierd', 'prettier' } },
       },
     },
   },
