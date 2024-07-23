@@ -380,6 +380,7 @@ require('lazy').setup({
       vim.keymap.set('n', 'L', '$')
       vim.keymap.set('v', 'H', '^')
       vim.keymap.set('v', 'L', '$')
+      vim.keymap.set('n', '<leader>h', ':Ex<Enter>')
       -- For shifting lines
       vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
       vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
@@ -558,6 +559,7 @@ require('lazy').setup({
         tsserver = {
           format = { enable = false },
         },
+        prettierd = {},
         eslint = {
           enable = true,
           format = { enable = false },
@@ -633,12 +635,14 @@ require('lazy').setup({
       },
       formatters_by_ft = {
         lua = { 'stylua' },
+        json = { 'prettierd' },
+        graphql = { 'prettierd' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { 'prettierd', 'prettier' } },
+        javascript = { 'prettierd' },
       },
     },
   },
