@@ -558,6 +558,11 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         tsserver = {
           format = { enable = false },
+          init_options = {
+           preferences = {
+              importModuleSpecifierPreference = 'relative', -- Use relative paths for imports
+            },
+          },
         },
         prettierd = {},
         eslint = {
@@ -643,6 +648,9 @@ require('lazy').setup({
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         javascript = { 'prettierd' },
+        typescript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
       },
     },
   },
